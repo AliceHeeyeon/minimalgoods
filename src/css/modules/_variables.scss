@@ -1,3 +1,19 @@
 //Colour
 $black: #2e2a27;
 $white: #e8e2da;
+
+// Mixins
+@mixin button-style {
+    background-color: transparent;
+    border: 1px solid $black;
+    background-image: url(../../../img/button-bg-fill.png);
+    background-repeat: repeat-x;
+    background-position: 0 -100%;
+    transition: 1.5s ease;
+    cursor: pointer;
+    
+    &:hover {
+        background-position: center;
+        color: $white;
+    }
+}

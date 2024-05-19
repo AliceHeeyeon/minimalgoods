@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";    
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import $ from 'jquery';
@@ -10,7 +10,16 @@ ScrollTrigger.defaults({
 });
 
 const Home = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+
   useEffect(() => {
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+
+    window.addEventListener('resize', handleResize);
+ 
     const initializeAnimations = () => {
       const sections = $(".section.is--hero");
       const navLogo = $(".nav_logo");
@@ -278,11 +287,6 @@ const Home = () => {
         });
     });
      
-   
-      
-  
-
-    // Use setTimeout to delay the initialization slightly to ensure DOM is ready
     const timeoutId = setTimeout(initializeAnimations, 100);
 
     // Cleanup function to remove ScrollTriggers on unmount
@@ -290,7 +294,7 @@ const Home = () => {
       clearTimeout(timeoutId);
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
 
   return (
@@ -307,15 +311,23 @@ const Home = () => {
                           <img className="logo_img" src="/img/logo-dark.svg" alt="logo" />
                         </div>
                     </div>
+                    
                     <div className="nav_side nav_menu">
-                        <ul>
-                            <li>PRODUCTS</li>
-                            <li>INSPIRATION</li>
-                            <li>NEWS</li>
-                        </ul>
+                    {isMobile ? 
+                      <p>MENU</p> : 
+                      <ul>
+                        <li>PRODUCTS</li>
+                        <li>INSPIRATION</li>
+                        <li>NEWS</li>
+                      </ul>
+                    }
+                        
                     </div>
                     <div className="nav_side is--right">
+                      {isMobile ? 
+                        <p>BY ALICE</p> :
                         <p>2024, ALL RIGHTS RESERVED</p>
+                      }
                     </div>
                 </div>
             </div>
@@ -327,22 +339,22 @@ const Home = () => {
             <div className="header-text">
               <div className="header_text-wrap">
                 <div className="header_text-move">
-                  <h1>Discover</h1>
+                  <h1>Good</h1>
                 </div>
               </div>
               <div className="header_text-wrap">
                 <div className="header_text-move">
-                  <h1 className="text-thin">the best in</h1>
+                  <h1 className="text-thin">design is</h1>
                 </div>
               </div>
               <div className="header_text-wrap">
                 <div className="header_text-move">
-                  <h1>minimal</h1>
+                  <h1>everyone's</h1>
                 </div>
               </div>
               <div className="header_text-wrap">
                 <div className="header_text-move">
-                  <h1>design</h1>
+                  <h1>right</h1>
                 </div>
               </div>
             </div>

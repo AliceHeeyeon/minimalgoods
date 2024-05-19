@@ -54,7 +54,7 @@ body {
 }
 .section.is--nav .nav_top .nav_logo-contain .nav_logo {
   position: absolute;
-  width: 11.61em;
+  width: 11em;
 }
 .section.is--nav .nav_top .nav_logo-contain .nav_logo img {
   width: 100%;
@@ -152,6 +152,17 @@ body {
   padding: 0.2em 0.5em;
   border-radius: 100vw;
   font-size: 43px;
+  background-color: transparent;
+  border: 1px solid #2e2a27;
+  background-image: url(../../../img/button-bg-fill.png);
+  background-repeat: repeat-x;
+  background-position: 0 -100%;
+  transition: 1.5s ease;
+  cursor: pointer;
+}
+.categories-sc .categories-ct .categories .categories_link:hover {
+  background-position: center;
+  color: #e8e2da;
 }
 
 .grid-sc {
