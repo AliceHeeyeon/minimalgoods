@@ -324,4 +324,10 @@ body {
   width: 35%;
   right: 10%;
   bottom: -115vh;
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    color: blue;
+  }
 }/*# sourceMappingURL=App.css.map */
